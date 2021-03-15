@@ -3,7 +3,7 @@ stages:
   - deploy-stage
 
 variables:
-  VARIABLE_DATA: "Gitlab CI YAML"
+  VARIABLE_DATA: Gitlab-CI-YAML
 
 build:
   stage: build
