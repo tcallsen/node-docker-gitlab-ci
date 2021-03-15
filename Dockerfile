@@ -10,7 +10,7 @@ USER node
 RUN npm install
 
 # create static configuration for app
-# RUN echo "variableData=Dockerfile-Build" >> .env
+RUN echo "variableData=Dockerfile-Build" >> .env
 
 # copy in source code
 COPY --chown=node:node ./ ./
