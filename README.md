@@ -10,7 +10,10 @@ A sample project that demonstrates how a NodeJS REST API can be Dockerized and a
 
 Install the dependencies with the following command:
 
-`npm install`
+```
+nvm use
+npm install
+```
 
 ### Launch Development Server
 
@@ -46,9 +49,11 @@ Changes will be deployed automatically to a configured Deployment Server (i.e. s
 
 - `STAGE_SERVER_IP` - contains the IP address of the Deployment Server. This is the IP address used to make SSH connections from the GitLab Runner.
 - `STAGE_SERVER_USER` - contains the user used when opening the SSH session.
-- `STAGE_ID_RSA` - SSH private key used to authenticate when opening the SSH session.
+- `STAGE_ID_RSA` - SSH private key file used to authenticate when opening the SSH session.
 
 For more information on these variables, see [section 2: Preparing the Staging Server](https://taylor.callsen.me/how-to-dockerize-a-nodejs-app-and-deploy-it-using-gitlab-ci/) on this blog post.
+
+I also ran into issues with DinD (Docker in Docker) during the Docker image builds. Strange things like `cannot connect to the docker daemon`. Ultimate applying this fix to the GitLab Runner worked for me: https://gitlab.com/gitlab-org/gitlab-runner/-/issues/1986#note_20339074
 
 ### Docker Debugging
 
